@@ -36,3 +36,7 @@ REFERENCES [dbo].[cargo] ([id])
 GO
 ALTER TABLE [dbo].[Pessoa] CHECK CONSTRAINT [FK_Pessoa_cargo]
 
+use CrudDB 
+insert into cargo(nome)
+values ('Administrador'), ('Funcionario')
+
