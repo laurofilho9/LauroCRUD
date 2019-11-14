@@ -1,7 +1,7 @@
 USE [master]
 GO
 /****** Object:  Database [CrudDB]    Script Date: 13/11/2019 22:43:01 ******/
-CREATE DATABASE [CrudDB]
+CREATE DATABASE [CrudDB];
 USE [CrudDB]
 CREATE TABLE [dbo].[cargo](
 	[id] [int] IDENTITY(1,1) NOT NULL,
@@ -34,7 +34,7 @@ GO
 ALTER TABLE [dbo].[Pessoa]  WITH CHECK ADD  CONSTRAINT [FK_Pessoa_cargo] FOREIGN KEY([cargoId])
 REFERENCES [dbo].[cargo] ([id])
 GO
-ALTER TABLE [dbo].[Pessoa] CHECK CONSTRAINT [FK_Pessoa_cargo]
+ALTER TABLE [dbo].[Pessoa] CHECK CONSTRAINT [FK_Pessoa_cargo];
 
 use CrudDB 
 insert into cargo(nome)
