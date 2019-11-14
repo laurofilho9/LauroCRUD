@@ -4,8 +4,42 @@
 }
 
 <div class="jumbotron">
-    <h2 class="display-4">CRUD Lauro Filho</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">                
+                <h2 class="display-4">CRUD Lauro Filho</h2>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDetalhes">
+                    Mais Detalhes
+                </button>
+            </div>
+        </div>
+    </div>  
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDetalhes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Detalhes</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>CRUD(Creat, Retrieve, Update e Delete) de usuários solicitado pelo Allan Rosa e encaminhado para os emails <strong>allan.rosa@saude.gov.br</strong> e 
+                     <strong>suzane.silva@saude.gov.br</strong>.</p>
+                    <p>Código e Script do DB hospedados no <a href="https://github.com/laurofilho9/LauroCRUD" target="_blank">GitHub.</a></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>                    
+                </div>
+            </div>
+        </div>
+    </div>
     <hr class="my-4">
+
     <h3>Este projeto foi criado afim de cumprir o desafio do processo seletivo da SESAB.</h3><br />
     <p>Para a string de conexão utilizar = <strong>name="CrudDBEntities1"</strong></p>
     <p><strong>Decrição:</strong>&nbsp;Sistema desenvolvido em C# asp.NET MVC 5, e ultiliza o banco de dados SQL Server.</p>

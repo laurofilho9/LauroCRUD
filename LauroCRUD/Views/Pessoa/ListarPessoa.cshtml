@@ -1,10 +1,12 @@
 ﻿@model IEnumerable<LauroCRUD.Models.Pessoa>
 
 
-<a href="@Url.Action("CriarPessoa")" class="btn btn-primary">
-    Criar Usuário
+<div class="mt-2 shadow p-3 mb-5 bg-white rounded">
+    <h3 class="text-center">Lista de Usuários</h3>    
+</div>
+<a href="@Url.Action("CriarPessoa")" class="btn btn-success">
+    Criar novo usuário
 </a>
-
 
 <table id="datatables" class=" display table-striped table table-sm" style="width:100%">
     <thead class="thead-dark text-center">
@@ -19,7 +21,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr class="text-center">
             
             <td>
                 @item.nome
@@ -33,9 +35,9 @@
             <td>
                 @item.celular
             </td>
-            <td class="text-center">
-                <a href="@Url.Action("EditarPessoa", "Pessoa", new { id = item.id })" class="btn" title="Editar" id="remo" onclick="myFunction('@item.id')"><i class="fa fa-edit text-danger" aria-hidden="true"></i></a>  
-                <a href="@Url.Action("DetalhePessoa", "Pessoa", new { id = item.id })" class="btn" title="Detalhes" id="remo" onclick="myFunction('@item.id')"><i class="fa fa-eye text-danger" aria-hidden="true"></i></a> 
+            <td>
+                <a href="@Url.Action("EditarPessoa", "Pessoa", new { id = item.id })" class="btn" title="Editar" id="remo" onclick="myFunction('@item.id')"><i class="fa fa-edit text-success" aria-hidden="true"></i></a>  
+                <a href="@Url.Action("DetalhePessoa", "Pessoa", new { id = item.id })" class="btn" title="Detalhes" id="remo" onclick="myFunction('@item.id')"><i class="fa fa-eye text-primary" aria-hidden="true"></i></a> 
                 <a href="#" class="btn" title="Remover" data-toggle="modal" data-target="#Modal" id="remo" onclick="myFunction('@item.id')"><i class="fa fa-trash text-danger" aria-hidden="true"></i></a>
             </td>
         </tr>

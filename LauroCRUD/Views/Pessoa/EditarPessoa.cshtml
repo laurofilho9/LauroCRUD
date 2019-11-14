@@ -1,73 +1,86 @@
 ﻿@model LauroCRUD.Models.Pessoa
 
 @{
+    /**/
+
     ViewBag.Title = "EditarPessoa";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>EditarPessoa</h2>
+<div class="mt-2 shadow p-3 mb-5 bg-white rounded">
+    <h3 class="text-center">Editar Usuário</h3>
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+    <div class="card" style="width: 100%">
+        <div class="card-body">
 
-    <div class="form-horizontal">
-        <h4>Pessoa</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.nome, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group col-md-12">
+                    <h5>Nome Completo</h5>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.nome, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nome, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.cargoId, "cargoId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("cargoId", ViewBag.cargo as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "custom-select" })
-                @Html.ValidationMessageFor(model => model.cargoId, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group col-md-12">
+                    <h5>Cargo</h5>
+                    <div class="col-md-12">
+                        @Html.DropDownList("cargoId", ViewBag.cargo as IEnumerable<SelectListItem>, htmlAttributes: new { @class = "custom-select" })
+                        @Html.ValidationMessageFor(model => model.cargoId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.data, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                <input type="date" value="@ViewBag.data" name="data" class="form-control" /> 
-                @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group col-md-12">
+                    <h5>Data de Nascimento</h5>
+                    <div class="col-md-12">
+                        <input type="date" value="@ViewBag.data" name="data" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.data, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group col-md-12">
+                    <h5>Email</h5>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.celular, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group col-md-12">
+                    <h5>Celular</h5>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.celular, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.celular, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        @Html.HiddenFor(model => model.id)
+                @Html.HiddenFor(model => model.id)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.cpf, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.cpf, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.cpf, "", new { @class = "text-danger" })
-            </div>
-        </div>
+                <div class="form-group col-md-12">
+                    <h5>CPF</h5>
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.cpf, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.cpf, "", new { @class = "text-danger" })
+                    </div>
+                </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <div class="container">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col col-md-offset-2 col-md-6">
+                                <input type="submit" value="Salvar" class="btn btn-success" />
+                            </div>
+                        </div>
+                        <div class="col col-md-offset-2 col-md-9 text-right">
+                            <a href="@Url.Action("ListarPessoa")" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </div>
+                </div>               
             </div>
         </div>
     </div>

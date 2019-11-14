@@ -35,7 +35,7 @@ namespace LauroCRUD.Controllers
         public ActionResult EditarPessoa(int id)
         {
             var pessoa = bd.Pessoa.FirstOrDefault(x => x.id == id);
-            ViewBag.data = pessoa.data.ToString("yyyy-MM-dd");
+            ViewBag.data = pessoa.data.ToString("yyyy-MM-dd");            
             var cargo = bd.cargo.ToList();
             ViewBag.cargo = new SelectList(cargo, "id", "nome");
             return View(pessoa);

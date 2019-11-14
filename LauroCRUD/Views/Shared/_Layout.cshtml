@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - SESAB </title>
+    <title>@ViewBag.Title - CRUD Lauro </title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -23,7 +23,7 @@
                     <a class="nav-link" href="@Url.Action("Index", "Home")">Início <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="@Url.Action("ListarPessoa", "Pessoa")">Listar Pessoa <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="@Url.Action("ListarPessoa", "Pessoa")">Listar Usuários <span class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
@@ -37,9 +37,7 @@
         <footer>
             <p>&copy; @DateTime.Now.Year Lauro Filho</p>
         </footer>
-    </div>
-
-    @*<div class="loader" style="display:inline"></div>*@
+    </div>   
 
     <script>
         $(document).ready(function () {
@@ -48,9 +46,7 @@
             item.parent().parent().parent().addClass("active menu-open");
         });
 
-            //$(document).ready(function () {
-            //    $('.loader').fadeOut("slow");
-            //})
+           
 
         $('#myModal').on('shown.bs.modal', function () {
             $('#myButton').trigger('focus')
@@ -64,26 +60,9 @@
 
     <script>
         $(document).ready(function () {
-            $('#datatables').DataTable({
-                //"dom": '<"top"fB>rt<"bottom"il>p<"clear">',
+            $('#datatables').DataTable({                
                 colReorder: true,
-                responsive: true,
-                //buttons: [
-                //    {
-                //        extend: 'copyHtml5',
-                //        text: 'Copiar',
-                //        autoPrint: false,
-                //    },
-                //    {
-                //        extend: 'pdfHtml5',
-                //        text: 'PDF',
-                //        autoPrint: false,
-                //    },
-                //    {
-                //        extend: 'excelHtml5',
-                //        text: 'Excel',
-                //    },
-                //],
+                responsive: true,              
                 "pagingType": "first_last_numbers",
                 "language": {
                     "sEmptyTable": "Nenhum registro encontrado",

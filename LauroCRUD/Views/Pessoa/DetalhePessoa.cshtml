@@ -5,63 +5,81 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>DetalhePessoa</h2>
+<div class="mt-2 shadow p-3 mb-5 bg-white rounded">
+    <h3 class="text-center">Detalhes do Usuário</h3>
+</div>
 
 <div>
-    <h4>Pessoa</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nome)
-        </dt>
+    <div class="card" style="width: 100%">
+        <div class="card-body">
+            <dl class="dl-horizontal">
+                <dt>
+                    Nome Completo:
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nome)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.nome)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.data)
-        </dt>
+                <dt>
+                    Data de Nascimento:
+                </dt>
 
-        <dd>
-            @Model.data.ToShortDateString()
-        </dd>
+                <dd>
+                    @Model.data.ToShortDateString()
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
+                <dt>
+                    Email:
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.email)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.celular)
-        </dt>
+                <dt>
+                    Celular:
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.celular)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.celular)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cpf)
-        </dt>
+                <dt>
+                    CPF:
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cpf)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.cpf)
+                </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.cargo.nome)
-        </dt>
+                <dt>
+                    Cargo:
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.cargo.nome)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.cargo.nome)
+                </dd>
 
-    </dl>
+            </dl>
+            <div class="container">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col col-md-2">
+                            <a href="@Url.Action("EditarPessoa", "Pessoa", new { id = Model.id })" class="btn btn-success"> Editar </a>
+                        </div>
+                    </div>
+                    <div class="col col-md-10 text-right">
+                        <a href="@Url.Action("ListarPessoa")" class="btn btn-danger">
+                            Voltar
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Editar", "EditarPessoa", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+
