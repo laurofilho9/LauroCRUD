@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - SESAB </title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <script src="https://kit.fontawesome.com/aa3f46289b.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="@Url.Action("Index", "Home")">CRUD Lauro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExample04">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">Início <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("ListarPessoa", "Pessoa")">Listar Pessoa <span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year Lauro Filho</p>
+        </footer>
+    </div>
+
+    @*<div class="loader" style="display:inline"></div>*@
+
+    <script>
+        $(document).ready(function () {
+            var item = $('a[href*="' + window.location.pathname + '"]');
+            item.parent().addClass("active");
+            item.parent().parent().parent().addClass("active menu-open");
+        });
+
+            //$(document).ready(function () {
+            //    $('.loader').fadeOut("slow");
+            //})
+
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myButton').trigger('focus')
+        })
+
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $('#datatables').DataTable({
+                //"dom": '<"top"fB>rt<"bottom"il>p<"clear">',
+                colReorder: true,
+                responsive: true,
+                //buttons: [
+                //    {
+                //        extend: 'copyHtml5',
+                //        text: 'Copiar',
+                //        autoPrint: false,
+                //    },
+                //    {
+                //        extend: 'pdfHtml5',
+                //        text: 'PDF',
+                //        autoPrint: false,
+                //    },
+                //    {
+                //        extend: 'excelHtml5',
+                //        text: 'Excel',
+                //    },
+                //],
+                "pagingType": "first_last_numbers",
+                "language": {
+                    "sEmptyTable": "Nenhum registro encontrado",
+                    "sProcessing": "A processar...",
+                    "sLengthMenu": "",
+                    "sZeroRecords": "Não foram encontrados resultados",
+                    "sInfo": "",
+                    "sInfoEmpty": "Mostrando de 0 até 0 de 0 registros",
+                    "sInfoFiltered": "(filtrado de MAX registros no total)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Procurar:",
+                    "sUrl": "",
+                    "oPaginate": {
+                        "sFirst": "Primeiro",
+                        "sPrevious": "Anterior",
+                        "sNext": "Seguinte",
+                        "sLast": "Último"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Ordenar colunas de forma ascendente",
+                        "sSortDescending": ": Ordenar colunas de forma descendente"
+                    },
+                }
+            }
+            )
+        })
+    </script>
+
+
+</body>
+</html>
